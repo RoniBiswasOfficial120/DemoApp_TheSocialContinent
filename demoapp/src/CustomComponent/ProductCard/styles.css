@@ -1,0 +1,42 @@
+.productCard {
+  height: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #33333380;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.productTopicContainer {
+  width: 100%;
+  padding: 10px 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.overFlowText {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.productSliderContainer {
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
+
+.discount {
+    margin-left: 10px;
+  color: orangered;
+  font-size: 11px;
+}

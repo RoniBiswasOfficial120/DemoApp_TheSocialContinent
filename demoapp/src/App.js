@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Alert, ThemeProvider, createTheme } from "@mui/material";
+import "./App.css";
+import AppRouter from "./AppConfig/Router";
+import { Provider, useSelector } from "react-redux";
+import store from "./AppConfig/Redux/Store";
+import { Toaster } from "react-hot-toast";
+
+const DefaultTheme = createTheme();
+
+const AppConfig = () => {
+  const loaderStatus = useSelector((state) => state?.CommonReducer.loader);
+  return (
+    <div className="mainBody">
+      <AppRouter />
+      {loaderStatus && (
+        <div className="loaderContainer">
+          <span className="loader"></span>
+        </div>
+      )}
+      <Toaster/>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider theme={DefaultTheme}>
+        <AppConfig />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
